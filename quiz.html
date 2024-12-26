@@ -30,8 +30,35 @@
         questions.forEach((question)=>{
             const card =document.createElement('div');
             card.className='card ${question.reviewedstatus?"reviewed":""}'
-            card.innerHTML
+            card.innerHTML=` `;
+            container.appendchild(card);
         })
-    }
+        addEventListener();
+    };
+    document.getElementById(quizform).addEventListener("submit",async(e)=>{
+        e.preventDefault();
+        const question=document.getElementById("question").value;
+        const optionA=document.getElementById("optionA").value;
+        const optionB=document.getElementById("optionB").value;
+        const optionC=document.getElementById("optionC").value;
+        const optionD =document.getElementById("optionD").value;
+        const correctoption=document.getElementById("Correct Option")
+    await fetch (url,{
+        method:'POST',
+        headers:{'content-Type':'application/json'}
+        body:JSON.stringify({
+            qusetion,
+            optionB,
+            optionC,
+            optionD,
+            correctOption,
+            reviewStatus:false,
+        }),
+    });
+    alert("Question Created");
+    e.target.reset();
+    fetchque();
+});
+fetchque();
 </script>
 </html>
