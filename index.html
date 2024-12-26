@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display:flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <form id="loginform">
+    <h1>Welcome to login page</h1>
+    <input id="email" type="Email" name="email" placeholder="Enter a Email" />
+    <input id="pw" type="password" name="password" placeholder="Enter a Password" />
+    <button type="submit">Login</button>
+    <div id="error" >Invalid Ceredentials,please try again.</div>
+</form>
+</div>
+<script>
+    const form=document.getElementById("loginform")
+    const errorMessage=document.getElementById("error")
+    form.addEventListener("submit",function(event){
+        event.preventDefault();
+        let email=document.getElementById("email").value;
+        let password=document.getElementById("pw").value;
+        if(email == "empher@gmail.com" && password=="empher123"){
+            alert("Login Success, you are redirecting to quiz page")
+            window.location.href="quiz.html";
+        }else{
+            errormessage.style.display ="block"
+        }
+    });
+</script>
+</body>
+</html>
