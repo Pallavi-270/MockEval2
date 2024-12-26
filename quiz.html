@@ -17,4 +17,21 @@
         
     </form>
 </body>
+<script>
+    const url="http://localhost:3000/questions"
+    const fetchque =async()=>{
+        const response=await fetch(url);
+        const questions= await response.json();
+        renderQuestions(questions);
+    };
+    const renderQuestions=(question)=>{
+        const container=document.getElementById("quecont");
+        container.innerHTML="";
+        questions.forEach((question)=>{
+            const card =document.createElement('div');
+            card.className='card ${question.reviewedstatus?"reviewed":""}'
+            card.innerHTML
+        })
+    }
+</script>
 </html>
